@@ -1,0 +1,1 @@
+{"GSHEET_ID": "10PmGsjxMXvIMDIig1QiS-YVYxqOClZEvEu8B9Z69MeA", "RANGE_NAME": "Transactions!A:I"}
