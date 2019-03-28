@@ -9,7 +9,7 @@ To run this program, you'll need:
 
 Python 3.4 or greater.
 
-This was developed and tested using Python 3.6.4 on macOS High Sierra
+This was developed and tested using Python 3.6.4 on macOS High Sierra and tested in Python 3.7.3 on Windows 10 
 but it should work in any other Python environment as long as the necessary Python modules are installed.
 If Python complains that one of the modules is missing, just install that module and let me know that this
 documentation is missing a package.
@@ -50,7 +50,7 @@ Move this file to your working directory and rename it client_secret.json.
 ## Step 2: Install the Google Client Library and other non-standard python modules
 Run the following command in Terminal to install the necessary libraries using pip:
 ```
-pip install --upgrade pandas httplib2 google-api-python-client oauth2client
+pip install --upgrade googleapiclient
 ```
 See the library's <a href="https://developers.google.com/api-client-library/python/start/installation">installation page</a> for the alternative installation options.
 
