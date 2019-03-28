@@ -2,10 +2,13 @@
 This simple script takes a .CSV file of transactions exported from <a href="https://wiz.money">MoneyWiz 2 or 3</a> and automatically appends the transactions to your own copy of this custom <a href="https://docs.google.com/spreadsheets/d/10PmGsjxMXvIMDIig1QiS-YVYxqOClZEvEu8B9Z69MeA/copy"><b>Google Sheet</b></a> I made for business bookkeeping purposes. No coding experience necessary.
 
 ## Quickstart on Windows
-Export .csv file from MoneyWiz.
-Download transactions.exe and gsheet_id.txt and create your own credentials.json using the instructions below.
-Place all files in the same folder. Make a copy of the Google Sheet linked above and modify gsheet_id.txt with your own sheet ID.
-Double-click on transactions.exe
+1) Export .csv file from MoneyWiz.
+
+2) Download transactions.exe and gsheet_id.txt and create your own credentials.json using the instructions below. Place all files in the same folder.
+
+3) Make a copy of the Google Sheet linked above and modify gsheet_id.txt with your own sheet ID.
+
+4) Double-click on transactions.exe
 
 ## Prerequisites for running the app on your desktop
 From https://developers.google.com/sheets/api/quickstart/python
