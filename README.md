@@ -10,7 +10,7 @@ This simple script takes a .CSV file of transactions exported from <a href="http
 
 4) Double-click on transactions.exe
 
-## Prerequisites for running the app on your desktop
+## Prerequisites for running the Python script on your desktop
 From https://developers.google.com/sheets/api/quickstart/python
 
 To run this program, you'll need:
