@@ -22,9 +22,8 @@ SCOPES = [
 def parse_csv():
     root = Tk()
     root.filename =  filedialog.askopenfilename(title = "Select file",filetypes = (("CSV files","*.csv"),("All files","*.*")))
-    print (root.filename)
 #    root.filename = "Untitled.csv"
-#    print(root.filename)
+    print(root.filename)
     with open(root.filename, 'r') as csvfile:
         fieldnames = ("Name", "Current balance", "Account", "Transfers", "Description", "Merchant",
                       "Category", "Date", "Time", "Amount", "Currency", "Check #")
