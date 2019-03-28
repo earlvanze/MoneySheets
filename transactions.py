@@ -13,7 +13,7 @@ from google.auth.transport.requests import Request
 # Google Sheets stuff
 
 # You should change these to match your own spreadsheet
-GSHEET_ID = '1i-VKHdzfv8rbfPpvdSDpl54m0Q8X6B5cMgKAuBmaMP4'
+GSHEET_ID = '10PmGsjxMXvIMDIig1QiS-YVYxqOClZEvEu8B9Z69MeA'
 RANGE_NAME = 'Transactions!A:I'
 SCOPES = [
     "https://www.googleapis.com/auth/spreadsheets",
