@@ -58,18 +58,8 @@ See the library's <a href="https://developers.google.com/api-client-library/pyth
 Make your own copy of the Google spreadsheet linked above and replace GSHEET_ID
 with your own Google Sheet's ID (derived from the URL https://docs.google.com/spreadsheets/d/{SPREADSHEET_ID})
 
-You can also pass this in as a command-line argument to override the default global variable one time
-
 If you renamed the specific sheet 'Transactions!A:I' inside the Google Sheets file or modified the number of columns,
 replace RANGE_NAME with the new name along with the new range of columns.
-
-Note that if you modify the number of columns, you may also want to modify the columns list in save_csv() to match.
-Or not, since the save_csv() function does not affect the append_to_gsheet() function.
-
-What is important is that if you want to save a csv of the listings, the number of columns in the output_data list
-returned by get_properties() and passed in to save_csv() MUST match the number of items in columns[], or Python will throw an exception.
-
-Example: 'Transactions!A:I'
 
 ## Step 4: Run the program
 Run the sample using the following command
