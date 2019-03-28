@@ -11,10 +11,17 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 
 # Google Sheets stuff
-
 # You should change these to match your own spreadsheet
-GSHEET_ID = '10PmGsjxMXvIMDIig1QiS-YVYxqOClZEvEu8B9Z69MeA'
-RANGE_NAME = 'Transactions!A:I'
+if os.path.exists('gsheet_id.txt'):
+    with open('gsheet_id.txt', 'r') as file:
+       json_repr = file.readline()
+       data = json.loads(json_repr)
+       GSHEET_ID = data["GSHEET_ID"]
+       RANGE_NAME = data["RANGE_NAME"]
+else:
+    GSHEET_ID = '10PmGsjxMXvIMDIig1QiS-YVYxqOClZEvEu8B9Z69MeA'
+    RANGE_NAME = 'Transactions!A:I'
+    
 SCOPES = [
     "https://www.googleapis.com/auth/spreadsheets",
 ]
