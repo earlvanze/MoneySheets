@@ -58,7 +58,7 @@ Move this file to your working directory and rename it client_secret.json.
 ## Step 2: Install the Google Client Library and other non-standard python modules
 Run the following command in Terminal to install the necessary libraries using pip:
 ```
-pip install --upgrade googleapiclient
+pip install --upgrade googleapiclient google_auth_oauthlib google-auth-httplib2
 ```
 See the library's <a href="https://developers.google.com/api-client-library/python/start/installation">installation page</a> for the alternative installation options.
 
