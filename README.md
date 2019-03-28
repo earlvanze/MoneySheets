@@ -1,5 +1,5 @@
 # MoneySheets: MoneyWiz to Google Sheet Exporter
-This simple script takes a .CSV file of transactions exported from <a href="https://wiz.money">MoneyWiz 2 or 3</a> and automatically appends the transactions to your own copy of this custom <a href="https://docs.google.com/spreadsheets/d/10PmGsjxMXvIMDIig1QiS-YVYxqOClZEvEu8B9Z69MeA/copy"><b>Google Sheet</b></a> I made for business bookkeeping purposes. No coding experience necessary. You just need to know how to follow directions below.
+This simple script takes a .CSV file of transactions exported from <a href="https://wiz.money">MoneyWiz 2 or 3</a> and automatically appends the transactions to your own copy of this custom <a href="https://docs.google.com/spreadsheets/d/10PmGsjxMXvIMDIig1QiS-YVYxqOClZEvEu8B9Z69MeA/copy"><b>Google Sheet</b></a> I made for business bookkeeping purposes. No coding experience necessary.
 
 
 ## Prerequisites for running the app on your desktop
