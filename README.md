@@ -1,4 +1,4 @@
-# MoneySheets: MoneyWiz to Google Sheet Exporter
+# MoneySheets: MoneyWiz to Google Sheets Exporter
 This simple script takes a .CSV file of transactions exported from <a href="https://wiz.money">MoneyWiz 2 or 3</a> and automatically appends the transactions to your own copy of this custom <a href="https://docs.google.com/spreadsheets/d/10PmGsjxMXvIMDIig1QiS-YVYxqOClZEvEu8B9Z69MeA/copy"><b>Google Sheet</b></a> I made for business bookkeeping purposes. No coding experience necessary.
 
 ## Quickstart on Windows
@@ -58,7 +58,7 @@ Move this file to your working directory and rename it client_secret.json.
 ## Step 2: Install the Google Client Library and other non-standard python modules
 Run the following command in Terminal to install the necessary libraries using pip:
 ```
-pip install --upgrade googleapiclient
+pip install --upgrade googleapiclient google_auth_oauthlib google-auth-httplib2
 ```
 See the library's <a href="https://developers.google.com/api-client-library/python/start/installation">installation page</a> for the alternative installation options.
 
