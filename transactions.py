@@ -42,20 +42,84 @@ def parse_csv():
         for row in reader:
             if not row["Name"]:
                 try:
+                    if "ORIG CO NAME:" in row["Description"]:
+                        continue
                     data = []
                     data.append(row["Date"])
                     data.append(row["Account"])
-                    data.append(row["Transfers"])
-                    data.append(row["Description"])
+                    data.append(row["Description"].split('WEB ID:')[0])
                     data.append(row["Merchant"])
-                    if float(row["Amount"]) > 0:
+
+                    # Split Amount column to Incomes and Expenses columns
+                    if float(row["Amount"].replace(',', '')) > 0:
                         data.append(row["Amount"])
                         data.append("")
                     else:
                         data.append("")
                         data.append(row["Amount"])
-                    data.append("")
-                    data.append(row["Category"])
+
+                    # Business Category
+                    if row["Account"] == "88 Madison Joint Account":
+                        data.append("88 Madison Ave")
+                    elif row["Account"] == "ECO Systems Checking":
+                        data.append("724 3rd Ave")
+                    else:
+                        data.append("")
+
+                    # Autofill Category column
+                    # Venmo cleaning transactions
+                    if row["Account"] == "88 Madison Joint Account" and "VENMO PAYMENT" in row["Description"]:
+                        data[2] = data[2].replace(" WEB ID: 3264681992", "")
+                        if float(row["Amount"]) == -25:
+                            data[2] += " - 1 hr cleaning"
+                        else:
+                            data[2] += " - {0} hrs cleaning".format(float(row["Amount"]) / -20.0) # number of hours @ $20/hr
+                        data[3] = "Florence Odongo"
+                        data.append("Services")
+
+                    # Airbnb or Homeaway Income
+                    elif row["Account"] == "88 Madison Joint Account" and "AIRBNB PAYMENTS" in row["Description"]:
+                        data[3] = "Airbnb"
+                        data.append("Rental")
+                    elif row["Account"] == "88 Madison Joint Account" and "HOMEAWAY" in row["Description"]:
+                        data[3] = "HomeAway"
+                        data.append("Rental")
+
+                    # Mortgage Transactions
+                    elif "DITECH" in row["Description"]:
+                        data[3] = "Ditech Financial"
+                        data.append("Mortgage")
+                    elif "NewRez" in row["Description"]:
+                        data[3] = "NewRez LLC"
+                        data.append("Mortgage")
+
+                    # PriceLabs, Smartbnb, Netflix, TWC
+                    elif "PRICELABS" in row["Description"]:
+                        data[3] = "PriceLabs"
+                        data.append("Advertising")
+                    elif "SMARTBNB" in row["Description"]:
+                        data[3] = "Smartbnb"
+                        data.append("Advertising")
+                    elif "NETFLIX" in row["Description"]:
+                        data[3] = "Netflix"
+                        data.append("Subscriptions")
+                    elif "TWC" in row["Description"]:
+                        data[3] = "Spectrum"
+                        data.append("Utilities")
+
+                    # Gas/Fuel
+                    elif "CONOCO" in row["Description"]:
+                        data[3] = "Conoco"
+                        data.append("Automobile > Gas/Fuel")
+
+                    elif "Target" in row["Merchant"] or "Walmart" in row["Merchant"] or "Amazon" in row["Merchant"]:
+                        data.append("Supplies")
+
+                    elif row["Transfers"]:
+                        data.append("Transfer")
+
+                    else:
+                        data.append(row["Category"])
                     print(data)
                     output_data.append(data)
                 except:

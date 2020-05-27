@@ -1,0 +1,32 @@
+@font-face {
+  font-family: "BogleWeb";
+  src: url("https://i5.walmartimages.com/dfw/63fd9f59-46a2/7eb2b65d-8181-4d26-b75e-7fef6fdc8b02/v1/BogleWeb-Bold.eot");
+  src: url("https://i5.walmartimages.com/dfw/63fd9f59-46a2/7eb2b65d-8181-4d26-b75e-7fef6fdc8b02/v1/BogleWeb-Bold.eot?#iefix") format("embedded-opentype"),
+       url("https://i5.walmartimages.com/dfw/63fd9f59-46a2/7eb2b65d-8181-4d26-b75e-7fef6fdc8b02/v1/BogleWeb-Bold.woff2") format("woff2"),
+       url("https://i5.walmartimages.com/dfw/63fd9f59-46a2/7eb2b65d-8181-4d26-b75e-7fef6fdc8b02/v1/BogleWeb-Bold.woff") format("woff"),
+       url("https://i5.walmartimages.com/dfw/63fd9f59-46a2/7eb2b65d-8181-4d26-b75e-7fef6fdc8b02/v1/BogleWeb-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "BogleWeb";
+  src: url("https://i5.walmartimages.com/dfw/63fd9f59-46a2/7eb2b65d-8181-4d26-b75e-7fef6fdc8b02/v1/BogleWeb-Bold.eot");
+  src: url("https://i5.walmartimages.com/dfw/63fd9f59-46a2/7eb2b65d-8181-4d26-b75e-7fef6fdc8b02/v1/BogleWeb-Bold.eot?#iefix") format("embedded-opentype"),
+       url("https://i5.walmartimages.com/dfw/63fd9f59-46a2/7eb2b65d-8181-4d26-b75e-7fef6fdc8b02/v1/BogleWeb-Bold.woff2") format("woff2"),
+       url("https://i5.walmartimages.com/dfw/63fd9f59-46a2/7eb2b65d-8181-4d26-b75e-7fef6fdc8b02/v1/BogleWeb-Bold.woff") format("woff"),
+       url("https://i5.walmartimages.com/dfw/63fd9f59-46a2/7eb2b65d-8181-4d26-b75e-7fef6fdc8b02/v1/BogleWeb-Bold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "BogleWeb";
+  src: url("https://i5.walmartimages.com/dfw/63fd9f59-46a2/7eb2b65d-8181-4d26-b75e-7fef6fdc8b02/v1/BogleWeb-Regular.eot");
+  src: url("https://i5.walmartimages.com/dfw/63fd9f59-46a2/7eb2b65d-8181-4d26-b75e-7fef6fdc8b02/v1/BogleWeb-Regular.eot?#iefix") format("embedded-opentype"),
+       url("https://i5.walmartimages.com/dfw/63fd9f59-46a2/7eb2b65d-8181-4d26-b75e-7fef6fdc8b02/v1/BogleWeb-Regular.woff2") format("woff2"),
+       url("https://i5.walmartimages.com/dfw/63fd9f59-46a2/7eb2b65d-8181-4d26-b75e-7fef6fdc8b02/v1/BogleWeb-Regular.woff") format("woff"),
+       url("https://i5.walmartimages.com/dfw/63fd9f59-46a2/7eb2b65d-8181-4d26-b75e-7fef6fdc8b02/v1/BogleWeb-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
