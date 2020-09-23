@@ -138,6 +138,12 @@ def parse_csv():
                         data[3] = "Gusto"
                         data.append("Salary/Wages")
 
+                    # Automatic Payments
+                    elif "AUTOPAY" in row["Description"] or "AUTOMATIC PAYMENT" in row["Description"]:
+                        data[3] = "Payment"
+                        data[6] = "Personal"
+                        data.append("Transfer")
+
                     elif row["Transfers"]:
                         data.append("Transfer")
 
