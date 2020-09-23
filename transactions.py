@@ -61,8 +61,12 @@ def parse_csv():
                     # Business Category
                     if row["Account"] == "88 Madison Joint Account":
                         data.append("88 Madison Ave")
+                    if row["Account"] == "CIU 88 Estate LLC":
+                        data.append("88 Madison Ave")
                     elif row["Account"] == "ECO Systems Checking":
                         data.append("724 3rd Ave")
+                    elif row["Account"] == "Your Second Home Checking":
+                        data.append("Your Second Home")
                     else:
                         data.append("")
 
@@ -81,8 +85,7 @@ def parse_csv():
                     elif row["Account"] == "88 Madison Joint Account" and "AIRBNB PAYMENTS" in row["Description"]:
                         data[3] = "Airbnb"
                         data.append("Rental")
-                    elif row["Account"] == "88 Madison Joint Account" and "HOMEAWAY" in row["Description"]:
-                        data[3] = "HomeAway"
+                    elif row["Account"] == "88 Madison Joint Account" and "VRBO" in row["Description"]:
                         data.append("Rental")
 
                     # Mortgage Transactions
@@ -93,18 +96,30 @@ def parse_csv():
                         data[3] = "NewRez LLC"
                         data.append("Mortgage")
 
-                    # PriceLabs, Smartbnb, Netflix, TWC
+                    # Subscriptions: PriceLabs, Smartbnb, Arcadia, Netflix, TWC, BillFixers, Comcast, RedPocket, Tello
                     elif "PRICELABS" in row["Description"]:
                         data[3] = "PriceLabs"
                         data.append("Advertising")
                     elif "SMARTBNB" in row["Description"]:
                         data[3] = "Smartbnb"
                         data.append("Advertising")
+                    elif "ARCADIA" in row["Description"]:
+                        data[3] = "Arcadia Power"
+                        data.append("Utilities")
                     elif "NETFLIX" in row["Description"]:
                         data[3] = "Netflix"
                         data.append("Subscriptions")
                     elif "TWC" in row["Description"]:
                         data[3] = "Spectrum"
+                        data.append("Utilities")
+                    elif "COMCAST" in row["Description"]:
+                        data.append("Utilities")
+                    elif "BILLFIXERS" in row["Description"]:
+                        data[3] = "BillFixers"
+                        data.append("Utilities")
+                    elif "RED POCKET" in row["Description"]:
+                        data.append("Utilities")
+                    elif "TELLO" in row["Description"]:
                         data.append("Utilities")
 
                     # Gas/Fuel
@@ -114,6 +129,14 @@ def parse_csv():
 
                     elif "Target" in row["Merchant"] or "Walmart" in row["Merchant"] or "Amazon" in row["Merchant"]:
                         data.append("Supplies")
+
+                    elif "Instacart" in row["Merchant"]:
+                        data.append("Food & Dining > Groceries")
+
+                    # Payroll
+                    elif "GUSTO" in row["Description"]:
+                        data[3] = "Gusto"
+                        data.append("Salary/Wages")
 
                     elif row["Transfers"]:
                         data.append("Transfer")
