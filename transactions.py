@@ -42,8 +42,8 @@ def parse_csv():
         for row in reader:
             if not row["Name"]:
                 try:
-                    if "ORIG CO NAME:" in row["Description"]:
-                        continue
+#                    if "ORIG CO NAME:" in row["Description"]:
+#                        continue
                     data = []
                     data.append(row["Date"])
                     data.append(row["Account"])
@@ -61,12 +61,20 @@ def parse_csv():
                     # Business Category
                     if row["Account"] == "88 Madison Joint Account":
                         data.append("88 Madison Ave")
-                    if row["Account"] == "CIU 88 Estate LLC":
-                        data.append("88 Madison Ave")
+                    elif row["Account"] == "110 N Saddle Dr":
+                        data.append("110 N Saddle Dr")
+                    elif row["Account"] == "90 Madison Ave":
+                        data.append("90 Madison Ave")
+                    elif row["Account"] == "Your Second Home Checking":
+                        data.append("Your Second Home")
+#                    elif row["Account"] == "CIU 88 Estate LLC":
+#                        data.append("88 Madison Ave")
                     elif row["Account"] == "ECO Systems Checking":
                         data.append("724 3rd Ave")
                     elif row["Account"] == "Your Second Home Checking":
                         data.append("Your Second Home")
+                    elif row["Account"] == "Dover Holdings Checking":
+                        data.append("3880 Dover St")
                     else:
                         data.append("")
 
@@ -79,7 +87,7 @@ def parse_csv():
                         else:
                             data[2] += " - {0} hrs cleaning".format(float(row["Amount"]) / -20.0) # number of hours @ $20/hr
                         data[3] = "Florence Odongo"
-                        data.append("Services")
+                        data.append("Cleaning & Maintenance")
 
                     # Airbnb or Homeaway Income
                     elif row["Account"] == "88 Madison Joint Account" and "AIRBNB PAYMENTS" in row["Description"]:
