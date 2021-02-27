@@ -61,6 +61,8 @@ def parse_csv():
                     # Business Category
                     if row["Account"] == "88 Madison Joint Account":
                         data.append("88 Madison Ave")
+                    elif row["Account"] == "88 Madison Ave":
+                        data.append("88 Madison Ave")
                     elif row["Account"] == "110 N Saddle Dr":
                         data.append("110 N Saddle Dr")
                     elif row["Account"] == "90 Madison Ave":
@@ -149,6 +151,18 @@ def parse_csv():
                     # Automatic Payments
                     elif "AUTOPAY" in row["Description"] or "AUTOMATIC PAYMENT" in row["Description"]:
                         data[3] = "Payment"
+                        data[6] = "Personal"
+                        data.append("Transfer")
+
+                    # Bright Money
+                    elif "Bright Money" in row["Description"]:
+                        data[3] = "Bright Money"
+                        data[6] = "Personal"
+                        data.append("Transfer")
+
+                    # Nexo
+                    elif "Currency Cloud" in row["Description"]:
+                        data[3] = "Nexo"
                         data[6] = "Personal"
                         data.append("Transfer")
 
