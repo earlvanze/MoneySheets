@@ -59,23 +59,19 @@ def parse_csv():
                         data.append(row["Amount"])
 
                     # Business Category
-                    if row["Account"] == "88 Madison Joint Account":
+                    if "88 Madison Joint Account" in row["Account"]:
                         data.append("88 Madison Ave")
-                    elif row["Account"] == "88 Madison Ave":
+                    elif "88 Madison Ave" in row["Account"]:
                         data.append("88 Madison Ave")
-                    elif row["Account"] == "110 N Saddle Dr":
+                    elif "110 N Saddle Dr" in row["Account"]:
                         data.append("110 N Saddle Dr")
-                    elif row["Account"] == "90 Madison Ave":
+                    elif "90 Madison Ave" in row["Account"]:
                         data.append("90 Madison Ave")
-                    elif row["Account"] == "Your Second Home Checking":
-                        data.append("Your Second Home")
-#                    elif row["Account"] == "CIU 88 Estate LLC":
-#                        data.append("88 Madison Ave")
-                    elif row["Account"] == "ECO Systems Checking":
+                    elif "ECO Systems Checking" in row["Account"]:
                         data.append("724 3rd Ave")
-                    elif row["Account"] == "Your Second Home Checking":
+                    elif "Your Second Home Checking" in row["Account"]:
                         data.append("Your Second Home")
-                    elif row["Account"] == "Dover Holdings Checking":
+                    elif "Dover Holdings Checking" in row["Account"]:
                         data.append("3880 Dover St")
                     else:
                         data.append("")
@@ -105,6 +101,10 @@ def parse_csv():
                     elif "NewRez" in row["Description"]:
                         data[3] = "NewRez LLC"
                         data.append("Mortgage")
+                    elif "RoundPoint" in row["Description"]:
+                        data[3] = "RoundPoint Mortgage Servicing Corporation"
+                        data[6] = "724 3rd Ave"
+                        data.append("Mortgage")
 
                     # Subscriptions: PriceLabs, Smartbnb, Arcadia, Netflix, TWC, BillFixers, Comcast, RedPocket, Tello
                     elif "PRICELABS" in row["Description"]:
@@ -116,6 +116,9 @@ def parse_csv():
                     elif "ARCADIA" in row["Description"]:
                         data[3] = "Arcadia Power"
                         data.append("Utilities")
+                    elif "XCEL" in row["Description"]:
+                        data[3] = "Xcel Energy"
+                        data.append("Utilities")
                     elif "NETFLIX" in row["Description"]:
                         data[3] = "Netflix"
                         data.append("Subscriptions")
@@ -123,6 +126,7 @@ def parse_csv():
                         data[3] = "Spectrum"
                         data.append("Utilities")
                     elif "COMCAST" in row["Description"]:
+                        data[6] = "Your Second Home"
                         data.append("Utilities")
                     elif "BILLFIXERS" in row["Description"]:
                         data[3] = "BillFixers"
@@ -131,10 +135,40 @@ def parse_csv():
                         data.append("Utilities")
                     elif "TELLO" in row["Description"]:
                         data.append("Utilities")
+                    elif "LegalShield" in row["Description"]:
+                        data[6] = "88 Madison Ave"
+                        data.append("Legal & Professional")
+                    elif "ROOMONITOR.COM" in row["Description"]:
+                        data.append("Subscriptions")
+
+                    # Propane for 110 N Saddle
+                    elif "POLAR GAS" in row["Description"]:
+                        data[6] = "110 N Saddle Dr"
+                        data.append("Utilities")
+
+                    # Trash for 110 N Saddle
+                    elif "Doyle" in row["Description"]:
+                        data[6] = "110 N Saddle Dr"
+                        data.append("Utilities")
+
+                    # Proper.Insure for 110 N Saddle
+                    elif "Premium Finance" in row["Description"]:
+                        data[6] = "110 N Saddle Dr"
+                        data.append("Insurance")
+
+                    # Handy Cleaning
+                    elif "HANDY.COM" in row["Description"]:
+                        data[6] = "Personal"
+                        data.append("Cleaning & Maintenance")
 
                     # Gas/Fuel
                     elif "CONOCO" in row["Description"]:
                         data[3] = "Conoco"
+                        data.append("Automobile > Gas/Fuel")
+
+                    # Gas/Fuel
+                    elif "SEI" in row["Description"]:
+                        data[3] = "SEI Fuels"
                         data.append("Automobile > Gas/Fuel")
 
                     elif "Target" in row["Merchant"] or "Walmart" in row["Merchant"] or "Amazon" in row["Merchant"]:
@@ -143,10 +177,29 @@ def parse_csv():
                     elif "Instacart" in row["Merchant"]:
                         data.append("Food & Dining > Groceries")
 
-                    # Payroll
-                    elif "GUSTO" in row["Description"]:
-                        data[3] = "Gusto"
+                    # Aurora Salary
+                    elif "GUSTO" in row["Description"] and row[4]:
+                        data[3] = "Aurora Insight"
+                        data[6] = "Aurora"
                         data.append("Salary/Wages")
+
+                    # Your Second Home Payroll
+                    elif "GUSTO" in row["Description"] and "DESCR:NET" in row["Description"] and row[5]:
+                        data[3] = "Gusto"
+                        data[6] = "Your Second Home"
+                        data.append("Salary/Wages")
+
+                    # Your Second Home Payroll Taxes
+                    elif "GUSTO" in row["Description"] and "DESCR:TAX" in row["Description"] and row[5]:
+                        data[3] = "Gusto"
+                        data[6] = "Your Second Home"
+                        data.append("Taxes")
+
+                    # Your Second Home Payroll
+                    elif "GUSTO" in row["Description"] and "DESCR:FEE" in row["Description"] and row[5]:
+                        data[3] = "Gusto"
+                        data[6] = "Your Second Home"
+                        data.append("Accounting")
 
                     # Automatic Payments
                     elif "AUTOPAY" in row["Description"] or "AUTOMATIC PAYMENT" in row["Description"]:
@@ -166,11 +219,127 @@ def parse_csv():
                         data[6] = "Personal"
                         data.append("Transfer")
 
+                    # Gemini
+                    elif "GEMINI TRUST CO" in row["Description"]:
+                        data[3] = "Gemini"
+                        data[6] = "Crypto"
+                        data.append("Investments")
+
                     elif row["Transfers"]:
                         data.append("Transfer")
 
-                    else:
-                        data.append(row["Category"])
+                    # Renatus OES
+                    elif "TEAM ELEVATE OES" in row["Description"]:
+                        data[3] = "Team Elevate"
+                        data[6] = "Consulting"
+                        data.append("Events")
+
+                    # Nationwide Car Insurance
+                    elif "NATIONWIDE" in row["Description"]:
+                        data[6] = "Consulting"
+                        data.append("Insurance")
+
+                    # Nationwide Pet Insurance
+                    elif "NATIONWIDE PET INS" in row["Description"]:
+                        data[6] = "Personal"
+                        data.append("Insurance")
+
+                    # Zoom
+                    elif "ZOOM.US" in row["Description"]:
+                        data[3] = "Zoom Video Communications"
+                        data[6] = "Consulting"
+                        data.append("Subscriptions")
+
+                    # Primerica Life
+                    elif "PRIMERICA LIFE" in row["Description"]:
+                        data[3] = "Primerica Life"
+                        data[6] = "Personal"
+                        data.append("Insurance")
+
+                    # Prudential
+                    elif "PRUDENTIAL" in row["Description"]:
+                        data[3] = "Prudential"
+                        data[6] = "Personal"
+                        data.append("Insurance")
+
+                    # Northwestern Mutual
+                    elif "NORTHWESTERN MUTUAL" in row["Description"]:
+                        data[3] = "Northwestern Mutual"
+                        data[6] = "Personal"
+                        data.append("Insurance")
+
+                    # State Farm Renter's
+                    elif "STATE FARM INSURANCE" in row["Description"] and "Chase Freedom Unlimited" in row["Account"]:
+                        data[3] = "State Farm"
+                        data[6] = "Personal"
+                        data.append("Insurance")
+
+                    # Northwestern Mutual
+                    elif "LIBERTY MUTUAL" in row["Description"]:
+                        data[3] = "Liberty Mutual"
+                        data.append("Insurance")
+
+                    # TDAmeritrade
+                    elif "TDAmeritrade" in row["Account"]:
+                        data[3] = "TDAmeritrade"
+                        data[6] = "Personal"
+                        data.append("Investments")
+
+                    # Meerkat
+                    elif "MEERKAT" in row["Description"]:
+                        data[3] = "Meerkat Pest Control"
+                        data[6] = "724 3rd Ave"
+                        data.append("Cleaning & Maintenance")
+
+                    # Meerkat
+                    elif "MEERKAT" in row["Description"]:
+                        data[3] = "Meerkat Pest Control"
+                        data[6] = "724 3rd Ave"
+                        data.append("Cleaning & Maintenance")
+
+                    # Cozy.co Rents
+                    elif "Cozy Services" in row["Description"]:
+                        data[3] = "Cozy.co"
+                        data[6] = "724 3rd Ave"
+                        data.append("Rental")
+
+                    # Distributions to Kenny
+                    elif "Online Transfer from CHK ...8700" in row["Description"] and "88 Madison" in row["Account"]:
+                        data[3] = "Kenny Low"
+                        data[6] = "88 Madison Ave"
+
+                    # Distributions to Kenny
+                    elif "Online Transfer from CHK ...8700" in row["Description"] and "90 Madison" in row["Account"]:
+                        data[3] = "Kenny Low"
+                        data[6] = "90 Madison Ave"
+
+                    # Distributions to Earl
+                    elif "Online Transfer from CHK ...0000" in row["Description"] and "88 Madison" in row["Account"]:
+                        data[3] = "Earl Co"
+                        data[6] = "88 Madison Ave"
+g
+                    # Distributions to Earl
+                    elif "Online Transfer from CHK ...0000" in row["Description"] and "90 Madison" in row["Account"]:
+                        data[3] = "Earl Co"
+                        data[6] = "90 Madison Ave"
+
+                    # Distributions to Jen
+                    elif "Online Transfer from CHK ...8852" in row["Description"] and "88 Madison" in row["Account"]:
+                        data[3] = "Jen Yuan"
+                        data[6] = "88 Madison Ave"
+
+                    # Distributions to Jen
+                    elif "Online Transfer from CHK ...8852" in row["Description"] and "90 Madison" in row["Account"]:
+                        data[3] = "Jen Yuan"
+                        data[6] = "90 Madison Ave"
+
+                    # Upstart
+                    elif "191.83" in row["Expenses"] and "Capital One 360" in row["Account"]:
+                        data[3] = "Upstart"
+                        data[6] = "Personal"
+                        data.append("Transfer")
+
+
                     print(data)
                     output_data.append(data)
                 except:
