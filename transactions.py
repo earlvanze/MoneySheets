@@ -317,7 +317,7 @@ def parse_csv():
                     elif "Online Transfer from CHK ...0000" in row["Description"] and "88 Madison" in row["Account"]:
                         data[3] = "Earl Co"
                         data[6] = "88 Madison Ave"
-g
+
                     # Distributions to Earl
                     elif "Online Transfer from CHK ...0000" in row["Description"] and "90 Madison" in row["Account"]:
                         data[3] = "Earl Co"
