@@ -51,12 +51,16 @@ def parse_csv():
                     data.append(row["Merchant"])
 
                     # Split Amount column to Incomes and Expenses columns
-                    if float(row["Amount"].replace(',', '')) > 0:
-                        data.append(row["Amount"])
-                        data.append("")
-                    else:
-                        data.append("")
-                        data.append(row["Amount"])
+                    try:
+                        if float(row["Amount"].replace(',', '')) > 0:
+                            data.append(row["Amount"])
+                            data.append("")
+                        else:
+                            data.append("")
+                            data.append(row["Amount"])
+                    except ValueError:
+                        print("Error with row: ", row["Amount"])
+                        pass
 
                     # Business Category
                     if "88 Madison Joint Account" in row["Account"]:
