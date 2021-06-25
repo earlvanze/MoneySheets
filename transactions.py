@@ -33,7 +33,7 @@ def parse_csv():
     print(root.filename)
     with open(root.filename, 'r') as csvfile:
         fieldnames = ("Name", "Current balance", "Account", "Transfers", "Description", "Merchant",
-                      "Category", "Date", "Time", "Amount", "Currency", "Check #")
+                      "Category", "Date", "Time", "Memo", "Amount", "Currency", "Check #")
         reader = csv.DictReader(csvfile, fieldnames)
         next(reader, None)  # skip the headers
 
@@ -182,25 +182,25 @@ def parse_csv():
                         data.append("Food & Dining > Groceries")
 
                     # Aurora Salary
-                    elif "GUSTO" in row["Description"] and row[4]:
+                    elif "GUSTO" in row["Description"]:
                         data[3] = "Aurora Insight"
                         data[6] = "Aurora"
                         data.append("Salary/Wages")
 
                     # Your Second Home Payroll
-                    elif "GUSTO" in row["Description"] and "DESCR:NET" in row["Description"] and row[5]:
+                    elif "GUSTO" in row["Description"] and "DESCR:NET" in row["Description"]:
                         data[3] = "Gusto"
                         data[6] = "Your Second Home"
                         data.append("Salary/Wages")
 
                     # Your Second Home Payroll Taxes
-                    elif "GUSTO" in row["Description"] and "DESCR:TAX" in row["Description"] and row[5]:
+                    elif "GUSTO" in row["Description"] and "DESCR:TAX" in row["Description"]:
                         data[3] = "Gusto"
                         data[6] = "Your Second Home"
                         data.append("Taxes")
 
                     # Your Second Home Payroll
-                    elif "GUSTO" in row["Description"] and "DESCR:FEE" in row["Description"] and row[5]:
+                    elif "GUSTO" in row["Description"] and "DESCR:FEE" in row["Description"]:
                         data[3] = "Gusto"
                         data[6] = "Your Second Home"
                         data.append("Accounting")
@@ -338,7 +338,7 @@ def parse_csv():
                         data[6] = "90 Madison Ave"
 
                     # Upstart
-                    elif "191.83" in row["Expenses"] and "Capital One 360" in row["Account"]:
+                    elif row["Amount"] == "-191.83" and "Capital One 360" in row["Account"]:
                         data[3] = "Upstart"
                         data[6] = "Personal"
                         data.append("Transfer")
